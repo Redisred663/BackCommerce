@@ -12,11 +12,12 @@ ProductTag.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    product_id: {
+    produce_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'product',
         key: 'id',
+        unique: true,
       }
     },
     tag_id: {
@@ -24,6 +25,7 @@ ProductTag.init(
       references: {
         model: 'tag',
         key: 'id',
+        unique: true,
       }
     }
   },
