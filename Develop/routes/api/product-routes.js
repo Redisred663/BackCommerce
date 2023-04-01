@@ -6,7 +6,9 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 // get all products
 router.get('/', async (req, res) => {
   try {
-    const proTag = await ProductTag.findAll();
+    const proTag = await Product.findAll({
+      include: [{ model: Tag, through: ProductTag, as: 'producted_tags'}]
+    });
     res.status(200).json(proTag);
   } catch (err) {
     res.status(500).json(err);
@@ -16,8 +18,8 @@ router.get('/', async (req, res) => {
 // get one product
 router.get('/:id', async (req, res) => {
   try {
-    const proTag = await ProductTag.findByPk(req.params.id, {
-      include: [{model: Category}, {model: Tag}]
+    const proTag = await Product.findByPk(req.params.id, {
+      include: [{model: Tag, through: ProductTag, as: 'producted_tags'}]
     });
     if (!proTag) {
       res.status(404).json({ message: 'No Product Tags available, sorry!'});
@@ -97,7 +99,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   try {
-    const proTag = await ProductTag.destroy({
+    const proTag = await Product.destroy({
       where: {
         id: req.params.id
       }
