@@ -26,5 +26,8 @@ None.
 Tests
 For the testing process, please use: A varying list, however, mostly sticking to the "npm" commands and the "node" commands.
 
+## Walkthrough Video
+### Here is a link to the walktrhough video, involving the testing process of the routes since the web application is not deployed, https://drive.google.com/file/d/1nwJdd4amb98cDBXXGqgcPW0IGjd1PQT6/view.
+
 Questions
 If you have any questions about the application, please contact me on GitHub at Redisred663, or to get a more direct contact. please email me at, redalyssa636@gmail.com.
